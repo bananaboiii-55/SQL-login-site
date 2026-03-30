@@ -166,22 +166,11 @@
             color: #c33;
         }
         
-        .switch-version {
-            text-align: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 2px solid #eee;
-        }
-        
-        .switch-version a {
-            color: #667eea;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .switch-version a:hover {
-            text-decoration: underline;
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
         }
     </style>
 </head>
@@ -190,72 +179,4 @@
         {% if vulnerable %}
             <span class="badge vulnerable">⚠️ VULNERABLE VERSION</span>
         {% else %}
-            <span class="badge secure">✓ SECURE VERSION</span>
-        {% endif %}
-        
-        <h1>SQL Injection Practice</h1>
-        <p class="subtitle">Learn how SQL injection works and how to prevent it</p>
-        
-        {% if error %}
-            <div class="error">{{ error }}</div>
-        {% endif %}
-        
-        <form method="POST" action="/login">
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" placeholder="Enter username" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter password" required>
-            </div>
-            
-            <button type="submit">Login</button>
-        </form>
-        
-        <div class="info-section">
-            <h3>Test Credentials</h3>
-            <p><strong>Valid users:</strong></p>
-            <div class="credentials">
-                admin / password123<br>
-                user / user456<br>
-                guest / guest789
-            </div>
-            
-            {% if vulnerable %}
-                <h3 style="margin-top: 20px;">SQL Injection Examples (Vulnerable Only)</h3>
-                <p><strong>Try these in the username field:</strong></p>
-                <div class="injection-example">
-                    admin' --
-                </div>
-                <p style="font-size: 12px; color: #666;">Comments out the password check with <code>--</code></p>
-                
-                <div class="injection-example">
-                    ' OR '1'='1' --
-                </div>
-                <p style="font-size: 12px; color: #666;">Always true condition bypasses authentication</p>
-                
-                <div class="injection-example">
-                    admin' AND password = 'password123' --
-                </div>
-                <p style="font-size: 12px; color: #666;">Confirms the injection works by logging in correctly</p>
-            {% else %}
-                <h3 style="margin-top: 20px;">Why This Version is Safe</h3>
-                <p>This version uses <strong>parameterized queries</strong>. All user input is treated as data, not code. SQL injection attempts will fail harmlessly.</p>
-                <p style="margin-top: 10px;">Try the injection examples above—they won't work on this version!</p>
-            {% endif %}
-        </div>
-        
-        <div class="switch-version">
-            {% if vulnerable %}
-                <p>Ready to see the secure version?</p>
-                <a href="https://your-codespace-url.preview.app.github.dev:5001">→ View Secure Version (Port 5001)</a>
-            {% else %}
-                <p>Want to see how attacks work?</p>
-                <a href="https://your-codespace-url.preview.app.github.dev:5000">→ View Vulnerable Version (Port 5000)</a>
-            {% endif %}
-        </div>
-    </div>
-</body>
-</html>
+            <span
